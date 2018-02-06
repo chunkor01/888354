@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	function show_result(){
+		var txt_area = $("#txt_input").val();
+		var txt_search = $("#txt_search").val();
+		var lg = $('input:radio[name="sensitive"]:checked').val();
+		if(lg==1){
+			var serach = new RegExp(txt_search,"g");
+          	document.getElementById("show_sum").innerHTML = "Result for serach : " + (txt_area.match(serach).length);
+		}else{
+			var serach = new RegExp(txt_search,"gi");
+          	document.getElementById("show_sum").innerHTML = "Result for serach : " + (txt_area.match(serach).length);
+		}
+	}
+</script>
+</head>
+<body>
+<center>
+<h2>Ex2 - Search String Non Sensitive Case</h2><br>
+<div>
+	Text Input: 
+	<textarea id="txt_input">Test test test Num num int</textarea><br><br>
+</div>
+<div>
+	Sensitive Case : 
+	<input type="radio" name="sensitive" value="1" checked> Yes
+	<input type="radio" name="sensitive" value="0"> No
+</div><br>
+<div>
+	Search : 
+	<input type="text" id="txt_search">
+</div><br>
+<div>
+	<button id="success" onclick="show_result()">Search</button>
+</div><br>
+<div id="show_sum"></div>
+</center>
+</body>
+</html>
