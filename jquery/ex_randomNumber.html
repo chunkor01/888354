@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js"></script>
+<script>
+	 $(document).ready(function(){
+            randomNum();
+        });
+
+	function randomNum(){
+		var max = 1000;
+		var min = -1000;
+		var num1 = Math.floor((Math.random() * (max-min)) + min);
+		var num2 = Math.floor((Math.random() * (max-min)) + min);
+		$("#num1").html(num1);
+		$("#num2").html(num2);
+	}
+
+	function answer(){
+		var num1 = $("#num1").html();
+		var num2 = $("#num2").html();
+		var ans = parseInt(num1) + parseInt(num2);
+		var numInput = $("#numInput").val();
+		if(ans==numInput){
+			$("#show_sum").html("That's correct.");
+		}else{
+			$("#show_sum").html("That's wrong. The answer is "+ans);
+		}
+	}
+
+</script>
+</head>
+
+<body>
+<center>
+	<h2>Ex - Random Number For Answer</h2><hr><br>
+<div>
+	<button id="randomNum" onclick="randomNum()">Random Number</button>
+</div><br>
+<div>
+	<span id="num1"></span> + <span id="num2"></span> = <input type="number" max="1000" min="-1000" id="numInput">
+</div><br>
+<div>
+	<button id="sendAns" onclick="answer()">Send Answer</button>
+</div><br>
+<div>
+	Result: <span id="show_sum" ></span>
+</div>
+</center>
+</body>
+</html>
